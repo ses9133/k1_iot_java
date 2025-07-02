@@ -19,7 +19,7 @@ public class Z_Practice {
         int mathScore = sc.nextInt();
 
         int totalScore = korScore + engScore + mathScore;
-        int avgScore = totalScore / 3 ;
+        double avgScore = totalScore / 3.0 ;
         String pass = (korScore >= 60 && engScore >= 60 && mathScore >= 60) ? "합격" : "불합격";
 
         System.out.println("[이름 : " + name + "]");
