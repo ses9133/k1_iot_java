@@ -1,0 +1,92 @@
+package org.example.chapter03;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+// === 자바 정적 배열 == //
+// 장점) 기본 데이터 타입 사용 가능 - int, char, boolean 등등,
+//      , 요소 접근 속도가 빠름(인덱스 기반)
+// 단점) 한번 생성되면 크기 변경 불가능함
+//       , 크기 변경이 필요한 경우, 변경된 크기의 배열을 생성하여 요소값을 복사
+
+public class E_Array {
+    public static void main(String[] args) {
+        // 자바 정적 배열
+        int[] numbers = new int[5];
+        System.out.println(Arrays.toString(numbers));
+
+        // == 자바 동적 배열(ArrayList) == //
+        // : Java의 동적 배열 구현제(내부적으로 배열을 사용하지만, 자동으로 크기 조절됨)
+        // - 크기 제한 없이 동적으로 요소 추가/삭제 가능
+        // - Java Collection Framework 의 일부: 'java.util.ArrayList' 에서 제공
+        // 장점)
+        //     - 크기제한 X, 다양한 편의 메서드가 존재(add, remove, set 등)
+        // 단점)
+        //     - 기본 타입 사용 불가
+        //     - 내부적으로는 배열이므로, 중간 삽입/삭제 시 성능 저하 가능성 존재
+
+        // cf) ArrayList의 경우 기본 데이터 타입 사용 X
+        // : 참조 데이터 타입만 가능 ! (Wrapper 클래스 사용해야함)
+
+        // cf) Wrapper 클래스
+        // : 자바의 기본 타입을 객체 형태로 감싸서 사용할 수 있도록 만든 클래스
+        // - 기본값 null ( 아무 주소값이 없다는 뜻)
+        // - int(Integer), char(Character) 외에는 시작 알파벳을 대문자로 사용
+
+        Integer a = null;
+        // int b = null; -> 불가능
+
+        // === ArrayList 생성 === //
+         // : ArrayList<데이터타입> 변수명 = new ArrayList<>(초기용량);
+
+        // cf) 정적 배열: 초기용량 미지정시 오류남!!
+        //      >> 실제 요소값이라도 전달해야함 (자동으로 인식함)
+
+        ArrayList<Integer> arrayList = new ArrayList<>();
+        // : 초기 용량 미지정시 - 기본값 10
+        System.out.println(arrayList);  // 빈 배열 (기본 값 또한 데이터가 없으면 사라짐)
+
+        // 1. ArrayList 데이터 추가: 배열의 마지막에 값을 추가
+        // - 배열명.add(추가할 데이터);
+        arrayList.add(10);
+        arrayList.add(20);
+        arrayList.add(30);
+        System.out.println(arrayList);
+        // >> 내부 데이터를 확인하기 쉽게 문자열로 정리된 형태를 제공 .toString() 재정의
+
+        // 2. ArrayList 데이터 변경
+        // - 배열명.set(인덱스번호, 변경할 데이터);
+        arrayList.set(1, 50);
+        System.out.println(arrayList);
+
+        // 3. ArrayList 데이터 삭제
+        // - 배열명.remove(인덱스번호);
+        arrayList.remove(2);
+        System.out.println(arrayList);
+
+        // 4. ArrayList 크기 확인
+        // - 배열명.size();
+        System.out.println(arrayList.size());
+
+        // +) ArrayList.add(인덱스번호, 데이터 값);
+        arrayList.add(1, 123);
+        System.out.println(arrayList);
+
+        // +) 특정 요소 접근
+        //      >> 배열명.get(인덱스번호);
+        System.out.println(arrayList.get(1));
+
+        //      [ 정적 배열 ] vs [ 동적 배열 ]
+        // 크기 :     고정          자동 조절
+        // 타입 : 기본타입 가능     참조타입만 가능
+        // 속도 :     빠름         상대적으로 느림
+        //유연성:      낮음          높음
+        // 기능: 저장 + 조회      저장, 수정, 삭제, 삽입 등
+
+
+
+
+
+
+    }
+}
