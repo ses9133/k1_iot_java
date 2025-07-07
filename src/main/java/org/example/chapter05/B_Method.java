@@ -88,6 +88,7 @@ public class B_Method {
        // example.add("1", "2");
         example.add('a', '2'); // char(2) < int(4) 이기 때문에 자동형변환 가능함.
         example.add(10, 20); // 같은 타입
+
     }
 }
 
