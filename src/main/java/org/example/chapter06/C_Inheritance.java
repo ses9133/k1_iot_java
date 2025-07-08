@@ -8,8 +8,6 @@ package org.example.chapter06;
 //      - 자식 클래스의 생성자 호출시 **'반드시'** 부모 클래스의 생성자가 호출되어야함. (이때 생성자는 사용자 정의 생성자일 필요는 없음)
 //      - 반드시 부모가 존재해야만 자식이 존재함
 
-import org.w3c.dom.ls.LSOutput;
-
 class A {
     A() {
 
@@ -44,7 +42,7 @@ class Cat extends Mammal {
     //      : 사용자 정의 부모 생성자의 호출이 없더라도,
     //        super() 라는 부모 클래스 생성자 호출 키워드가 정의되어잇음(생략되어있음)
 
-    Cat(){
+    Cat() {
         super(); // 생략되어있어도 자동호출이 됨
         // >> Mammal 클래스 내에 매개변수가 없는 생성자를 의미
         System.out.println("빈 자식 생성자 - 인스턴스 생성");
@@ -57,12 +55,14 @@ class Cat extends Mammal {
         // - 부모 클래스 내에 정의된 생성자를 형태 그대로 사용
         // - 여러개의 생성자가 있는 경우 오버로딩 super() 의 형태도 다양해질수있음.
 
+
 //        Mammal(String name) {
 //            this.name = name;
 //        }
 
        // this.name = name;
     }
+
 
     void displayCat() {
         // 해당 클래스가 가진 인스턴스 변수에 접근: this.
