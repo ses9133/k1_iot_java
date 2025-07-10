@@ -58,7 +58,7 @@ public class H_Polymorphism {
         // > boolean 타입으로 반환
         // 업캐스팅된 객체를 다운 캐스팅할 경우, instanceof 클래스타입의 객체가 맞는지 확인후, 캐스팅
 
-        if(subway instanceof Vehicle){  // subway 객체가 Vehicle 인스턴스 이면서, Vehicle을 상속받은 인스턴스 일 경우
+        if(subway instanceof Vehicle){  // subway 객체가 Vehicle 인스턴스 이거나 Vehicle을 상속받은 인스턴스 일 경우
             subway.depart();
         }
 

@@ -50,7 +50,7 @@ class Cat extends Mammal {
     }
 
     Cat(String name) {
-        super(name); // Mammal 클래스에 String 변수를 매개변수로 받는 생성자 호출
+          super(name); // Mammal 클래스에 String 변수를 매개변수로 받는 생성자 호출
         // super() 메서드는 부모 클래스의 생성자를 가져오는 키워드
         // - 부모 클래스 내에 정의된 생성자를 형태 그대로 사용
         // - 여러개의 생성자가 있는 경우 오버로딩 super() 의 형태도 다양해질수있음.
