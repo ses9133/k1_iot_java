@@ -1,5 +1,6 @@
 package org.example.chapter10.practice01;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -15,6 +16,10 @@ public class InventorySystem {
             System.out.println("2. Read 전체 책 조회");
             System.out.println("3. Update 책 수정(재고)");
             System.out.println("4. Delete 책 삭제");
+            System.out.println("5. 책 통합 검색");
+            System.out.println("6. 책 카테고리 검색");
+            System.out.println("7. 책 가격 검색");
+            System.out.println("0. 프로그램 종료");
 
             try {
                 // Integer.parseInt(A) : A 문자열값을 분석하여 Integer 형태로 변경
@@ -70,6 +75,70 @@ public class InventorySystem {
                         String removedId = sc.nextLine();
                         manager.remove(removedId);
                         break;
+
+                    // 5. 책 통합 검색
+                    case 5:
+                        System.out.println("검색어를 입력하세요: ");
+                        String keyword = sc.nextLine();
+
+                        List<Item> searchResults = manager.search(keyword);
+
+                        if(searchResults.isEmpty()) {
+                            System.out.println("No items found in keyword: " + keyword);
+                        } else {
+                            for(Item item : searchResults) {
+                                item.display();
+                            }
+                        }
+                        break;
+
+                    // 6. 책 카테고리 검색
+                    case 6:
+                        System.out.println("카테고리를 입력하세요: ");
+                        String searchCategory = sc.nextLine();
+
+                        List<Item> categoryResults = manager.searchByCategory(searchCategory);
+
+                        if(categoryResults.isEmpty()) {
+                            System.out.println("No items found in category: " + searchCategory);
+                        } else {
+                            for(Item item : categoryResults) {
+                                item.display();
+                            }
+                        }
+                        break;
+
+                    // 7. 책 가격 검색
+                    case 7:
+                        System.out.println("Enter minimum price: ");
+                        int minPrice = Integer.parseInt(sc.nextLine());
+                        System.out.println("Enter maximum price: ");
+                        int maxPrice = Integer.parseInt(sc.nextLine());
+
+                        List<Item> priceResults = manager.searchByPriceRange(minPrice, maxPrice);
+
+                        if(priceResults.isEmpty()) {
+                            System.out.println("No items in price range");
+                        } else {
+                            for(Item item : priceResults) {
+                                item.display();
+                            }
+                        }
+                        break;
+
+                    // 0. 프로그램 종료
+                    case 0:
+                        System.out.println("종료하시겠습니까 ? 종료를 원하시면 'y' 를 입력해주세요");
+                        if(sc.nextLine().equalsIgnoreCase("y")) {
+                            System.out.println("종료합니다.");
+                            sc.close();
+                            return;     // while 무한 루프 탈출
+                        }
+                        System.out.println("다시 입력하세요");
+
+                        break;  // switch case 의 탈출(while 문은 종료 X)
+                    default:
+                        System.out.println("유효하지 않은 선택입니다. 다시 시도해주세요");
                 }
             } catch (NumberFormatException e) {
                 System.out.println("Please Enter a valid number");
@@ -83,5 +152,21 @@ public class InventorySystem {
                 System.out.println(e.getMessage());
             }
         }
+
+//        int num = 0;
+//        switch (num) {
+//            case 1:
+//                // 코드 구문
+//                int a;
+//                break;
+//            case 2:
+//                //...
+//                break;
+//            case 3: {
+//                // case 3 만의 스코프 설계
+//                // : 각 case 가 지역변수의 범위를 가진 독립 블록. (안정성 확보)
+//                int a;
+//            }
+//        }
     }
 }
