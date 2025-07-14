@@ -4,7 +4,6 @@ import org.example.chapter10.practice02.entity.Electronics;
 import org.example.chapter10.practice02.entity.Furniture;
 import org.example.chapter10.practice02.entity.Item;
 import org.example.chapter10.practice02.repository.InMemoryItemRepository;
-import org.example.chapter10.practice02.repository.ItemRepository;
 import org.example.chapter10.practice02.service.InventoryService;
 import org.example.chapter10.practice02.service.InventoryServiceImpl;
 

@@ -3,7 +3,6 @@ package org.example.chapter10.practice02.service;
 import org.example.chapter10.practice02.entity.Item;
 import org.example.chapter10.practice02.repository.ItemRepository;
 
-import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
