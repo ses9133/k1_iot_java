@@ -30,7 +30,6 @@ package org.example.chapter13;
          <E>: Element 약자 (컬렉션에서 주로 사용)
  */
 
-import java.lang.reflect.Parameter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,10 +71,10 @@ public class A_Generic {
     public static void main(String[] args) {
         // 제네릭 사용 방법
         // 제네릭 메서드 사용 <제네릭타입> 메서드명();
-        Pair.<String>print("안녕");
+        Pair.print("안녕");
       //  Pair.<Integer>print("안녕"); imcompatible types (호환되지 않는 타입)
 
-        Pair.<Integer>print(1);
+        Pair.print(1);
 
         // cf) 자바의 제네릭은 타입 명시를 생략해도 자동으로 타입을 추론
         Pair.print("Hello");    // <T>: <String>
