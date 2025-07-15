@@ -1,7 +1,8 @@
 package org.example.chapter12.view;
 
 
-import org.example.chapter12.controlelr.BookController;
+import org.example.chapter12.controller.BookController;
+import org.example.chapter12.model.Book;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,13 +32,11 @@ public class LibraryManagement {
     public static void main(String[] args) {
 
         List<Book> dummy = new ArrayList<>();
-        dummy.add(new Book("wkqqkk", "정은혜", "abc"));
-        dummy.add(new Book("java", "jeh", "cdf"));
 
-        BookController bookController = new BookController(dummy);
+        BookController bookcontroller = new BookController(dummy);
         Scanner sc = new Scanner(System.in);
 
-        BookView bookView = new BookView(bookController, sc);
+        BookView bookView = new BookView(bookcontroller, sc);
         bookView.showMenu();
 
 

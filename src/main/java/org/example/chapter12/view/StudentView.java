@@ -60,7 +60,6 @@ public class StudentView {
                 System.out.println("오류가 발생하였습니다." + e.getMessage());
             }
 
-
         }
     }
 
@@ -120,7 +119,7 @@ public class StudentView {
     private void deleteStudentView() {
         System.out.println("삭제할 학생의 학번: ");
         String studentNumber = sc.nextLine();
-        boolean result = controller.removeStudent(studentNumber);
+        boolean result = controller.deleteStudent(studentNumber);
         System.out.println(result ? "삭제완료!!" : "해당학번의 학생을 찾을 수 없습니다.");
     }
 }
