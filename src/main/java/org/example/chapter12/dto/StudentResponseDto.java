@@ -8,6 +8,8 @@ public class StudentResponseDto {
     private String studentNumber;
     private LocalDateTime createdAt;
 
+
+    // controller -> view 응답
     public StudentResponseDto(String name, int age, String studentNumber, LocalDateTime createdAt) {
         this.name = name;
         this.age = age;
@@ -17,6 +19,11 @@ public class StudentResponseDto {
 
     @Override
     public String toString() {
-        return "Student { " + "학생 이름= " + name + ", 나이= " + age + ", 학번= " + studentNumber + ", 생성일= " + createdAt + " }";
+        return "Student{ " +
+                "이름=" + name +
+                ", 나이=" + age +
+                ", 학번=" + studentNumber +
+                ", 생성일=" + createdAt + " }";
+
     }
 }

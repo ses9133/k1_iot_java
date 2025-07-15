@@ -2,7 +2,6 @@ package org.example.chapter12.view;
 
 
 import org.example.chapter12.controlelr.BookController;
-import org.example.chapter12.model.Book;
 
 import java.util.ArrayList;
 import java.util.List;
