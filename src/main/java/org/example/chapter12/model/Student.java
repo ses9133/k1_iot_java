@@ -42,43 +42,4 @@ public class Student {
     public String toString() {
         return "Student { ID= " + studentId + "학생 이름= " + name + ", 나이= " + age + ", 학번= " + studentNumber + ", 생성일= " + createdAt + " }";
     }
-
-
-    public int getStudentId() {
-        return studentId;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getStudentNumber() {
-        return studentNumber;
-    }
-
-    public LocalDateTime getCreatedAt() {
-        return createdAt;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{ " +
-                "ID=" + studentId +
-                ", 이름=" + name +
-                ", 나이=" + age +
-                ", 학번=" + studentNumber +
-                ", 생성일=" + createdAt + " }";
-    }
 }
