@@ -106,7 +106,5 @@ public class B_List {
         endTime = System.nanoTime();
         System.out.println("LinkedList 삽입 시간: " + (endTime - startTime) + "ns"); // 26695300ns
 
-
-
     }
 }

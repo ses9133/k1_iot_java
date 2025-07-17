@@ -1,6 +1,5 @@
 package org.example.chapter12.view;
 
-
 import org.example.chapter12.controller.StudentController;
 import org.example.chapter12.dto.StudentRequestDto;
 import org.example.chapter12.dto.StudentResponseDto;

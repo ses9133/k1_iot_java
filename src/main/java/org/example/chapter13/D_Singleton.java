@@ -23,7 +23,7 @@ package org.example.chapter13;
 //  : 결합도 증가 - 여러 클래스가 같은 인스턴스 공유시, 하나가 변경될 때 다른 곳에 영향을 미칠 수 있다.
 //  : 테스트에 어려움 있음 - 전역 상태를 사용하는 특성으로 인해
 
-// 4) 구현 방법 (필드값 static, 생성자 private, 인스턴스 담당 메서드 static)
+// 4) 구현 방법 (필드값 static, 생성자 private, 인스턴스 담당 메서드 public static)
 class Singleton {
     // 필드값: static 으로
     private static Singleton instance;
