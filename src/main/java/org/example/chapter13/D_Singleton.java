@@ -106,6 +106,5 @@ public class D_Singleton {
         System.out.println(principal1 == principal2); // true.
         principal1.announce();
 
-
     }
 }
