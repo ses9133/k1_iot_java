@@ -1,8 +1,10 @@
 package org.example.chapter14;
 
+import java.util.Map;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.Supplier;
 
 /*
     === 람다식 ===
@@ -44,6 +46,17 @@ import java.util.function.Predicate;
         void accept(T t);
     }
 
+    4. Supplier<T> (공급하다)
+    : 값을 공급(생성)하는데에 사용, 입력값을 필요로 하지 않음
+    : 외부에서 값을 가져오거나, 데이터를 생성하여 반환하는 역할
+    : 메서드
+        - T get() : 반환
+
+    @FunctionalInterface
+    interface Supplier<T> {
+        T get();
+    }
+
  */
 public class E_Lambda {
     public static void main(String[] args) {
@@ -52,6 +65,13 @@ public class E_Lambda {
 
         Predicate<Integer> isEven = n -> n % 2 == 0;
         Predicate<Integer> isPositive = n -> n > 0;
+
+        /*
+            boolean isEven(n) {
+              return n % 2 == 0;
+            }
+
+         */
 
         System.out.println(isEven.test(10));
         System.out.println(isEven.test(11));
@@ -72,7 +92,8 @@ public class E_Lambda {
         System.out.println(square.apply(3));
         System.out.println(upperString.apply("nice to meet you"));
 
-        Function<String, Integer> lengthAndSquare = stringLength.andThen(square);
+
+         Function<String, Integer> lengthAndSquare = stringLength.andThen(square);
         // 문자열의 길이값을 인자로 받아 제곱
         System.out.println(lengthAndSquare.apply("abcd"));
 
@@ -85,6 +106,13 @@ public class E_Lambda {
 
         Consumer<String> combinedConsumer = printMessage.andThen(printLength); // printMessage 호출하고 , printLength 도 연속적으로 호출
         combinedConsumer.accept("123");// 123 3
-        
+
+        System.out.println("=== Supplier ===");
+        // Math.random(): 0.0 과 1.0 사이의 무작위 실수 반환
+        Supplier<Double> randomValue = () -> Math.random(); // Supplier -> 매개변수 X
+//        Supplier<Double> randomValue = () -> {
+//            return Math.random();
+//        }; --> 위와 동일한 구조. 실행문 하나인 경우 {} + return 키워드 생략가능
+        randomValue.get();
     }
 }
