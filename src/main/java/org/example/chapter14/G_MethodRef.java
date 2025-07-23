@@ -76,6 +76,7 @@ public class G_MethodRef {
         // 2) 메서드 참조
         // 이미 생성된 객체의 메서드를 참조
         Supplier<String> toUpperLambdaRef = hello::toUpperCase;
+       // Supplier<String> toUpperLambdaRef = String::toUpperCase;
         System.out.println(toUpperLambda.get());
         System.out.println(toUpperLambdaRef.get());
 
@@ -99,6 +100,10 @@ public class G_MethodRef {
         // 1) 람다 표현식 Function<String, String> toUpperFunc = s -> s.toUpperCase();
         // 2) 인스턴스 메서드 참조
         Function<String, String> toUpperFunc = String::toUpperCase;
+        // toUpperCase 라는 정적 메서드를 호출한 것이 아니라
+        // s -> s.toUpperCase() 와 동등한 표현을 뜻하는 것임
+
+        //Function<String, String> toUpperFunc = names::toUpperCase; -> names 는  String 타입의 배열 객체인데 String[] 클래스에는 .toUpperCase() 라는 메서드가 없음
 
         for(String name: names) {
             // 호출 시점(apply) 에 매개변수로 들어온 객체의 메서드 호출

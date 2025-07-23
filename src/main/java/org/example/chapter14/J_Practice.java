@@ -52,7 +52,7 @@ public class J_Practice {
 
         // 2) 학생 이름 목록만 추출
         List<String> studentNames = studentClasses.stream()
-                //.map(student -> student.getName())
+                // .map(student -> student.getName())
                 //  : 순회되는 학생의 인스턴스 메서드 참조 (클래스타입::메서드명)
                 .map(StudentClass::getName)
                 .collect(Collectors.toList());
@@ -67,7 +67,7 @@ public class J_Practice {
                 //.sorted(Comparator.comparingDouble(s -> s.getGrade())) 람다식을 아래의 메서드 참조형식으로 변경 가능
                 .sorted(Comparator.comparingDouble(StudentClass::getGrade)) //오름차순 정렬
                // .sorted(Comparator.comparingDouble(StudentClass::getGrade).reversed()) //내림차순 정렬
-                .collect(Collectors.toList());//
+                .collect(Collectors.toList());
 
         System.out.println("점수순으로 정렬된 학생");
         sortedStudents.forEach(System.out::println);
