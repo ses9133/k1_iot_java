@@ -37,7 +37,7 @@ public class D_Array_List {
         //      - 가변 X (길이 고정, 수정은 가능)
         //      - 가짜 ArrayList: Arrays 클래스 내부에서 구현된 별개의 ArrayList (컬렉션프레임워크가 아님)
         //      - 배열을 리스트로 변환
-        List<String> asListVar = Arrays.asList("a", "b", "c");
+        List<String> asListVar = Arrays.asList  ("a", "b", "c");
 
         // 3) List.of();
         //      - 불변 (길이 고정, 수정 불가)
