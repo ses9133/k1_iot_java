@@ -111,7 +111,7 @@ public class App {
                 break;
             }
             case 8: {
-                System.out.println("필터링할 조건을 입력하세요. 1. 진단명, 2. 특정 나이 기준 이상의 기록");
+                System.out.println("필터링할 조건을 입력하세요. 1. 진단명, 2. 특정 나이 기준 이상의 기록, 3. 특정 기간내의 환자 전체 조회");
                 int menu = InputHandler.getChoice();
 
                 if(menu == 1) {
@@ -127,22 +127,36 @@ public class App {
 
                 } else if (menu == 2) {
 
-                    try {
-                        System.out.println("조회를 원하는 나이를 입력해주세요: ");
-                        int age =InputHandler.getInputNum();
-                        List<RecordListResponseDto> filteredByAgeRecords
-                                = healthRecordController.filterRecordsByAge(age);
+                    System.out.println("조회를 원하는 나이를 입력해주세요: ");
+                    int age =InputHandler.getInputNum();
+                    List<RecordListResponseDto> filteredByAgeRecords
+                            = healthRecordController.filterRecordsByAge(age);
 
-                        if(filteredByAgeRecords.isEmpty()) {
-                            System.out.println("검색 결과를 찾을 수 없습니다.");
-                        } else {
-                            filteredByAgeRecords.forEach(System.out::println);
-                        }
-                    } catch (NumberFormatException e) {
-                        System.out.println(e.getMessage());
+                    if(filteredByAgeRecords.isEmpty()) {
+                        System.out.println("검색 결과를 찾을 수 없습니다.");
+                    } else {
+                        filteredByAgeRecords.forEach(System.out::println);
                     }
 
-                } else {
+                } else if(menu == 3) {
+                    String from = InputHandler.getInput("시작 날짜를 입력하세요");
+                    String end = InputHandler.getInput("끝 날짜를 입력하세요");
+
+                    try {
+                        List<RecordListResponseDto> filteredByDateRangeRecords
+                                = healthRecordController.filterRecordsByDateRange(from, end);
+                        if(filteredByDateRangeRecords.isEmpty()) {
+                            System.out.println("검색 결과를 찾을 수 없습니다.");
+                        } else {
+                            filteredByDateRangeRecords.forEach(System.out::println);
+                        }
+                    } catch (IllegalArgumentException e) {
+                        System.out.println("입력 형식이 올바르지 않습니다. " + e.getMessage());
+                    }
+
+                }
+
+                else {
                     System.out.println("유효한 숫자 값을 입력하세요");
                 }
                 break;

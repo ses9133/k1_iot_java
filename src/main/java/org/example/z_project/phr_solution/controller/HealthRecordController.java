@@ -38,6 +38,11 @@ public class HealthRecordController {
         return healthRecordService.filterRecordsByAge(minAge);
     }
 
+    // 특정 기간 내 환자조회
+    public List<RecordListResponseDto> filterRecordsByDateRange(String from, String end) {
+        return healthRecordService.filterRecordsByDateRange(from, end);
+    }
+
     public void deleteRecord(Long id) {
         healthRecordService.deleteRecord(id);
     }
